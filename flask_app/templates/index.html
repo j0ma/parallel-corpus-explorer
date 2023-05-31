@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Pair</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .preamble-container {
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: left;
+        }
+        .sentence-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            padding: 15px;
+            border: 1px solid #000;
+            margin-bottom: 20px;
+        }
+        .language-header {
+            margin-bottom: 10px;
+        }
+        .btn-custom {
+            background-color: #000;
+            margin: 5px;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-previous {
+            margin-right: 47%;
+        }
+    </style>
+</head>
+<body>
+    <div class="preamble-container container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Machine Translation Data Explorer</h1>
+                <p>This is a quick-and-dirty tool to explore parallel corpora for machine translation.
+                You can navigate through the sentences using the Next and Previous buttons.<p>
+                <p> Each sentence pair is displayed in separate boxes, with the source language on top and the target language below.</p>
+                <ul>
+                    <li>Source language: {{ source_language }}</li>
+                    <li>Target language: {{ target_language }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="sentence-container">
+                    <h3 class="language-header">{{ source_language }}</h3>
+                    <p class="source-sentence">{{ source_sentence }}</p>
+                </div>
+                <div class="sentence-container">
+                    <h3 class="language-header">{{ target_language }}</h3>
+                    <p class="target-sentence">{{ target_sentence }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-container container">
+        <a href="{{ url_for('previous') }}" class="btn btn-custom btn-previous">Previous</a>
+        <a href="{{ url_for('next') }}" class="btn btn-custom">Next</a>
+    </div>
+</body>
+</html>
