@@ -1,0 +1,2 @@
+mtdata get -l eng-iku --test Statmt-newstest_eniu-2020-eng-iku -dd -o <out-dir>
+mtdata version 0.4.0
